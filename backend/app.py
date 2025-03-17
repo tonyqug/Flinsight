@@ -23,10 +23,22 @@ load_dotenv(env_path)
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": ["http://localhost:3000"]}})
-
+service_account_info = {
+    "type": "service_account",
+    "project_id": os.environ.get("GOOGLE_PROJECT_ID"),
+    "private_key_id": os.environ.get("GOOGLE_PRIVATE_KEY_ID"),
+    "private_key": os.environ.get("GOOGLE_PRIVATE_KEY", "").replace("\\n", "\n"),  # Ensure proper formatting
+    "client_email": os.environ.get("GOOGLE_CLIENT_EMAIL"),
+    "client_id": os.environ.get("GOOGLE_CLIENT_ID"),
+    "auth_uri": os.environ.get("GOOGLE_AUTH_URI"),
+    "token_uri": os.environ.get("GOOGLE_TOKEN_URI"),
+    "auth_provider_x509_cert_url": os.environ.get("GOOGLE_AUTH_PROVIDER_CERT_URL"),
+    "client_x509_cert_url": os.environ.get("GOOGLE_CLIENT_CERT_URL"),
+    "universe_domain": "googleapis.com"
+}
 # Initialize Firebase (in production, use environment variables)
 try:
-    cred = credentials.Certificate("serviceAccount.json")
+    cred = credentials.Certificate(service_account_info)
     firebase_admin.initialize_app(cred)
     db = firestore.client()
 except Exception as e:
