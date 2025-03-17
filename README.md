@@ -1,69 +1,10 @@
-# Flinsight
-
-A full-stack application with Next.js frontend and Python Flask backend.
-
-## Prerequisites
-
-- Node.js (v18 or later)
-- Python 3.8 or later
-- pnpm (recommended) or npm
-
-## Setup
-
-1. Install frontend dependencies:
-```bash
-pnpm install
-```
-
-2. Install backend dependencies:
-```bash
-cd backend
-pip install -r requirements.txt
-cd ..
-```
-
-3. Create a `.env.local` file in the root directory with your environment variables:
-```
-GEMINI_API_KEY=your_gemini_api_key
-```
-
-## Running the Application
-
-### Development Mode
-To run both frontend and backend in development mode:
-```bash
-pnpm dev
-```
-This will start:
-- Frontend on http://localhost:3000
-- Backend on http://localhost:5000
-
-### Production Mode
-To run both frontend and backend in production mode:
-```bash
-pnpm build
-pnpm start
-```
-
-## API Endpoints
-
-The backend API is available at http://localhost:5000 with the following endpoints:
-- `/api/health` - Health check endpoint
-- `/api/aircraft` - Get aircraft information
-- `/api/analyze-flight` - Analyze flight details
-- `/api/regulations` - Get FAA regulations
-- `/api/fetch-faa-updates` - Fetch FAA updates
-- `/api/generate-action-items` - Generate action items
-
-## Development
-
-- Frontend code is in the root directory
-- Backend code is in the `backend` directory
-- The application uses Next.js for the frontend and Flask for the backend
-
 # Flinsight - Aviation Compliance Platform
 
 Flinsight is an AI-powered aviation compliance platform that analyzes flight plans against FAA regulations, with special optimizations for Gulfstream 550 aircraft operations.
+![image](https://github.com/user-attachments/assets/21f3a4fc-6573-4adb-a816-64b57e13c2a7)
+![image](https://github.com/user-attachments/assets/aba91166-f7c0-440d-a09e-39d9757c0633)
+![image](https://github.com/user-attachments/assets/d64d2c0b-98a3-454c-8afb-1309f2132587)
+
 
 ## Features
 
