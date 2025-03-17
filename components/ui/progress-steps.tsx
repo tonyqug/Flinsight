@@ -1,5 +1,5 @@
 import { Progress } from "@/components/ui/progress"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib2/utils"
 import { CheckCircle2, Circle, Loader2 } from "lucide-react"
 
 interface ProgressStep {

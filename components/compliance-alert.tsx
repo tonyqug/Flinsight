@@ -1,6 +1,6 @@
 import { AlertCircle, CheckCircle, Info } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib2/utils"
 
 type ComplianceAlertProps = {
   title: string

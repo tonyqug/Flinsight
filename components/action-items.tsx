@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle2, Clock, FileCheck, Mail, UserCheck } from "lucide-react"
-import { type ActionItem } from "@/lib/api-service"
+import { type ActionItem } from "@/lib2/api-service"
 import { useState } from "react"
 
 interface ActionItemsProps {

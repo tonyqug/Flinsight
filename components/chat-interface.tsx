@@ -5,7 +5,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Badge } from "@/components/ui/badge"
 import { Bot, Send, User, Book } from "lucide-react"
 import { useState } from "react"
-import { type ChatResponse } from "@/lib/api-service"
+import { type ChatResponse } from "@/lib2/api-service"
 import ReactMarkdown from 'react-markdown';
 import { ProgressSteps } from "@/components/ui/progress-steps"
 import { Tooltip, TooltipContent, TooltipTrigger , TooltipProvider} from "@/components/ui/tooltip";

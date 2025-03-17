@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Loader2 } from "lucide-react"
-import { apiService, type FlightPlan, type FlightAnalysisResponse } from "@/lib/api-service"
+import { apiService, type FlightPlan, type FlightAnalysisResponse } from "@/lib2/api-service"
 import { toast } from "@/hooks/use-toast"
 import { ProgressSteps } from "@/components/ui/progress-steps"
 

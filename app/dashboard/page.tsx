@@ -11,7 +11,7 @@ import { RecentUpdates } from "@/components/recent-updates"
 import { ActionItems } from "@/components/action-items"
 import { ChatInterface } from "@/components/chat-interface"
 import { useState, useEffect } from "react"
-import { type FlightAnalysisResponse, type FAAUpdate, type ActionItem, apiService } from "@/lib/api-service"
+import { type FlightAnalysisResponse, type FAAUpdate, type ActionItem, apiService } from "@/lib2/api-service"
 
 export default function Dashboard() {
   const [analysis, setAnalysis] = useState<FlightAnalysisResponse | null>(null)

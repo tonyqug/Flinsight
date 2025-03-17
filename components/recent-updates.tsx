@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { FileText, AlertCircle, Info } from "lucide-react"
-import { type FAAUpdate } from "@/lib/api-service"
+import { type FAAUpdate } from "@/lib2/api-service"
 import ReactMarkdown from "react-markdown"
 
 interface RecentUpdatesProps {
