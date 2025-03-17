@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"next dev\" \"cd backend && pip install -r requirements.txt && python app.py\"",
-    "build": "concurrently \"next build\" \"cd backend && pip install -r requirements.txt && python app.py\"",
+    "build": "concurrently \"next build\" \"cd backend && python -m pip install -r requirements.txt && python app.py\"",
     "start": "concurrently \"next start\" \"cd backend && pip install -r requirements.txt && python app.py\"",
     "lint": "next lint",
     "backend": "cd backend && pip install -r requirements.txt && python app.py"
