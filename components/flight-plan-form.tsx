@@ -51,15 +51,6 @@ export function FlightPlanForm({ onAnalysisComplete }: FlightPlanFormProps) {
 
     try {
       // Simulate progress (in production, this would be based on backend events)
-      setTimeout(() => {
-        setProcessingSteps(prev => ({
-          steps: prev.steps.map((step, i) => ({
-            ...step,
-            status: i === 0 ? "complete" : i === 1 ? "loading" : "pending"
-          })),
-          currentStep: 1
-        }))
-      }, 1000)
       const responseWeather = await fetch("http://localhost:5000/api/weather_at", {
         method: "POST",
         headers: {
@@ -72,6 +63,16 @@ export function FlightPlanForm({ onAnalysisComplete }: FlightPlanFormProps) {
       })
       const weatherDataDict = await responseWeather.json()
       console.log(weatherDataDict)
+      
+      setProcessingSteps(prev => ({
+        steps: prev.steps.map((step, i) => ({
+          ...step,
+          status: i === 0 ? "complete" : i === 1 ? "loading" : "pending"
+        })),
+        currentStep: 1
+      }))
+   
+      
       setWeatherData([weatherDataDict["departure"], weatherDataDict["arrival"]])
       setTimeout(() => {
         setProcessingSteps(prev => ({
@@ -81,7 +82,7 @@ export function FlightPlanForm({ onAnalysisComplete }: FlightPlanFormProps) {
           })),
           currentStep: 2
         }))
-      }, 2000)
+      }, 1000)
 
       setTimeout(() => {
         setProcessingSteps(prev => ({
@@ -91,7 +92,7 @@ export function FlightPlanForm({ onAnalysisComplete }: FlightPlanFormProps) {
           })),
           currentStep: 3
         }))
-      }, 3000)
+      }, 2000)
       
 
       const response = await fetch("http://localhost:5000/api/analyze-flight", {
@@ -151,7 +152,9 @@ export function FlightPlanForm({ onAnalysisComplete }: FlightPlanFormProps) {
           required
           className="bg-slate-800 border-slate-700"
         />
+        <div className = "text-slate-300 text-sm">
         {weatherData[0]}
+          </div>
       </div>
       <div className="space-y-2">
         <Label htmlFor="arrival">Arrival Airport</Label>
@@ -162,7 +165,9 @@ export function FlightPlanForm({ onAnalysisComplete }: FlightPlanFormProps) {
           required
           className="bg-slate-800 border-slate-700"
         />
+        <div className = "text-slate-300 text-sm">
         {weatherData[1]}
+          </div>
       </div>
       <div className="space-y-2">
         <Label htmlFor="aircraft">Aircraft Type</Label>

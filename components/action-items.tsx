@@ -77,7 +77,7 @@ export function ActionItems({ items, onStatusUpdate, onItemsChange }: ActionItem
                 <div className="mr-3 mt-1">{getTypeIcon(item.responsible_role)}</div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-1">
-                    <h3 className="font-medium">{item.title}</h3>
+                    <h3 className="font-medium">({item.id}) {item.title}</h3>
                     {getStatusBadge(item.status)}
                   </div>
                   <p className="text-slate-300 text-sm mb-2">{item.description}</p>

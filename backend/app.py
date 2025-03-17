@@ -218,7 +218,7 @@ def analyze_flight():
 
     metar_data1 = f"information at {departure}: ```" + get_from_metar(get_metar_avwx(departure)) + "```"
     metar_data2 = f"information at {arrival}: ```" + get_from_metar(get_metar_avwx(arrival)) + "```"
-    flight_context = model2.generate_content(f"Given the flight context, come up with an exhaustive list of concise compliance risks considering the route, aircraft, passengers, temperatures, whether the flight is an international one (important), overwater, and every relation between them. Flight context: {flight_context2}\n{metar_data1}\n{metar_data2}").text
+    flight_context = model2.generate_content(f"Given the flight context, come up with the top compliance risks that a new operator might miss (focus on aspects of the flight that are different than a standard one, example: international, overwater, icing, etc.). Flight context: {flight_context2}\n{metar_data1}\n{metar_data2}").text
             
     # Find if this is a Gulfstream 550 flight
     is_g550 = "gulfstream" in aircraft.lower() and "550" in aircraft
@@ -252,9 +252,9 @@ def analyze_flight():
         {json.dumps(relevant_regs, indent=2)}
         
         Provide:
-        1. applicable_regulations: Which regulations specifically apply to this flight
-        2. compliance_risks: What actions the operator needs to take for compliance
-        3. required_actions: Any potential compliance risks
+        1. applicable_regulations: Which regulations (exact id number) pecifically apply to this flight (based on the unique, less common aspects of the flight, ex: international, overwater, icing)
+        2. compliance_risks: The potential compliance risks for each applicable regulation
+        3. required_actions: What specific, actionable tasks the operator needs to take for to meet compliance for eacxh applicable regulation
 
         all 3 lists should be the same size, with the same index for all 3 lists corresponding to the same regulation analysis.
 
@@ -275,6 +275,7 @@ def analyze_flight():
                 "required_actions": ["Verify compliance with " + r["title"] for r in relevant_regs],
                 "compliance_risks": ["Potential non-compliance with " + r["title"] for r in relevant_regs]
             }
+        # for i in range(len(ai_analysis["applicable_regulations"]))
     else:
         # Without Gemini, provide mock analysis
         if is_g550:

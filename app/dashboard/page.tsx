@@ -183,7 +183,7 @@ export default function Dashboard() {
                           <ComplianceAlert
                             key={index}
                             title={regulation}
-                            description={analysis.analysis.compliance_risks[index] + "\n\n" + analysis.analysis.required_actions[index] || "Review and ensure compliance"}
+                            description={analysis.analysis.compliance_risks[index] || "Review and ensure compliance"}
                             severity={analysis.analysis.compliance_risks[index]?.toLowerCase().includes("risk") ? "warning" : "info"}
                             date={new Date().toLocaleDateString()}
                           />
